@@ -22,12 +22,33 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
-
-
 #########################################################
 ### your code goes here ###
+'''
+    History
+    ------------------------------------------------------
+    01/22/2018 GMN Mini-project init implementation
+'''
 
+from sklearn.naive_bayes import GaussianNB
 
+clf = GaussianNB()
+
+# Training
+clf.fit(features_train, labels_train)
+
+# Prediction
+pred = clf.predict(features_test)
+
+# Print 5 first tests label / predictions
+print labels_test[0:5]
+print pred[0:5]
+
+# Calculate accuracy
+from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(pred, labels_test)
+print (' accurancy: ', accuracy)
 #########################################################
 
 
