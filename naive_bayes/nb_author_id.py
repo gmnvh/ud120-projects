@@ -35,10 +35,14 @@ from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 
 # Training
+t0 = time()
 clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
 
 # Prediction
+t0 = time()
 pred = clf.predict(features_test)
+print "prediction time:", round(time()-t0, 3), "s"
 
 # Print 5 first tests label / predictions
 print labels_test[0:5]
